@@ -2,3 +2,4 @@ Create your ansible vault pwd
 
 Ans: ansible-vault create vault.yaml
     ansible-vault view vault.yaml
+    ansible-playbook --ask-vault-pass vault_variables.yaml
