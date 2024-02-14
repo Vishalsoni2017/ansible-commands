@@ -1,0 +1,30 @@
+---
+- hosts: servers
+  gather_facts: yes
+  become: yes
+  connection: ssh
+
+  tasks:
+
+    - name: copying
+      copy:
+        src: deploy.tar.gz
+        dest: /opt
+
+    - name: untar
+      unarchive:
+        src: /opt/deploy.tar.gz
+        dest: /opt
+
+    - name: make script executable
+      file:
+         path: /opt/deploy/deployer.sh
+         mode: "0777"
+
+    - name: run script
+      shell: /opt/deploy/deployer.sh
+      register: installer_output
+
+    - name: debug
+      debug:
+        var: installer_output
