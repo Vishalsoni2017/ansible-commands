@@ -1,2 +1,4 @@
 Create your ansible vault pwd
-ubuntu $ ansible-vault create vault.yaml
+
+Ans: ansible-vault create vault.yaml
+    ansible-vault view vault.yaml
