@@ -1,0 +1,11 @@
+---
+- hosts: server
+  gather_facts: yes
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: copying file
+      copy: 
+        src: filename
+        dest: /opt
